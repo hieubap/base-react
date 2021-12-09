@@ -6,6 +6,7 @@ const JigSaw = ({
   height = 500,
   border = [],
   backgroundColor = "crimson",
+  style,
   ...props
 }) => {
   const [state, _setState] = useState({
@@ -120,6 +121,7 @@ const JigSaw = ({
         backgroundColor,
         clipPath: state.clipPath,
         position: "absolute",
+        ...style,
       }}
     ></div>
   );

@@ -25,7 +25,6 @@ const App = () => {
   return (
     <div className="App">
       <div style={{ display: "flex" }}>
-        <JigSaw width={400} height={400} border={state.border} />
         <div className="edit-btn" onClick={borderChange(0)}>
           trên: {getTypeName(0)}
         </div>
@@ -38,13 +37,14 @@ const App = () => {
         <div className="edit-btn" onClick={borderChange(3)}>
           trái: {getTypeName(3)}
         </div>
-        <div className="edit-btn" onClick={borderChange(3)}>
-          Thêm mảnh
-        </div>
 
-        <JigSaw width={400} height={400} border={[1,1,1,1]} backgroundColor="blueviolet" />
-        <JigSaw width={400} height={400} border={[1,-1,0,1]} backgroundColor="brown"/>
-        <JigSaw width={400} height={400} border={[-1,-1,-1,1]} backgroundColor="darkblue"/>
+        <JigSaw style={{left: 100,top:100}} width={400} height={400} border={[1,1,1,1]} backgroundColor="blueviolet" />
+        <JigSaw style={{left: 200,top:100}} width={400} height={400} border={[1,-1,0,1]} backgroundColor="brown"/>
+        <JigSaw style={{left: 300,top:100}} width={400} height={400} border={[-1,-1,-1,1]} backgroundColor="darkblue"/>
+        <JigSaw style={{left: 100,top:300}} width={400} height={400} border={[-1,1,-1,1]} backgroundColor="goldenrod"/>
+        <JigSaw style={{left: 200,top:300}} width={400} height={400} border={[1,-1,1,1]} backgroundColor="darkgreen"/>
+        <JigSaw style={{left: 300,top:300}} width={400} height={400} border={[-1,-1,-1,-1]} backgroundColor="darkcyan"/>
+        <JigSaw width={400} height={400} border={state.border} />
       </div>
     </div>
   );
