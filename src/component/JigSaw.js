@@ -118,9 +118,13 @@ const JigSaw = ({
       style={{
         width,
         height,
+        marginLeft: -width / 5,
+        marginRight: -width / 5,
+        marginTop: -height / 5,
+        marginBottom: -height / 5,
         backgroundColor,
         clipPath: state.clipPath,
-        position: "absolute",
+        // position: "absolute",
         ...style,
       }}
     ></div>
