@@ -1,5 +1,5 @@
-import { combineUrlParams } from "@utils/common";
-import clientUtils from "@utils/client-utils";
+import { combineUrlParams } from "utils/common";
+import clientUtils from "utils/client-utils";
 
 export default (API = "") => ({
   _search({ page = 0, size = 10, ...param }) {

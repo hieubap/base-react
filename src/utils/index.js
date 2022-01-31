@@ -1,4 +1,4 @@
-import { ROLES } from "@constants";
+import { ROLES } from "variables";
 import { getState } from "../redux";
 
 export const checkRole = (accessRoles, roles) => {

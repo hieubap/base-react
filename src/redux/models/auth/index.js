@@ -1,15 +1,15 @@
+import { message } from "antd";
 import authProvider from "data-access/auth-provider";
 import clientUtils from "utils/client-utils";
+import dataCache from "utils/data-cache";
+
 export default {
   state: {
     auth: (() => {
       try {
-        let data = localStorage.getItem("auth") || "";
-        if (data) {
-          const parseData = JSON.parse(data);
-          clientUtils.auth = "Bearer " + parseData.token;
-          return parseData;
-        }
+        let data = dataCache.read("auth") || {};
+        clientUtils.auth = "Bearer " + data.token;
+        return data;
       } catch (error) {
         console.log(error);
       }
@@ -22,18 +22,26 @@ export default {
     },
   },
   effects: (dispatch) => ({
-    _register: (payload) => {
+    register: (payload) => {
       dispatch.auth.updateData({
         auth: null,
       });
       return new Promise((resolve, reject) => {
         authProvider
           .register(payload)
-          .then((s) => {
-            dispatch.auth.updateData({
-              auth: s?.data,
-            });
-            resolve(s);
+          .then((res) => {
+            if (res && res.code === 0) {
+              message.success(
+                "Đăng ký thành công. Vui lòng đăng nhập vào hệ thống"
+              );
+
+              setTimeout(() => {
+                window.location.href = "/auth/signin";
+              }, 1000);
+            } else {
+              message.error(res.message);
+            }
+            resolve(res);
           })
           .catch((e) => {
             // message.error(e?.message || "Đăng ký không thành công");
@@ -41,7 +49,7 @@ export default {
           });
       });
     },
-    _login: ({ username, password }) => {
+    login: ({ username, password }) => {
       dispatch.auth.updateData({
         auth: null,
       });
@@ -51,12 +59,19 @@ export default {
             username,
             password,
           })
-          .then((s) => {
-            localStorage.setItem("auth", JSON.stringify(s?.data));
-            dispatch.auth.updateData({
-              auth: s?.data,
-            });
-            resolve(s);
+          .then((res) => {
+            if (res && res.code === 0) {
+              dataCache.save("auth", res.data);
+              message.success("Đăng nhập thành công");
+
+              setTimeout(() => {
+                window.location.href = "/p/home";
+              }, 1500);
+            } else {
+              message.error(res.message);
+            }
+
+            resolve(res);
           })
           .catch((e) => {
             // message.error(e?.message || "Đăng nhập không thành công");

@@ -1,4 +1,4 @@
-import { checkRole } from "@utils";
+import { checkRole } from "utils";
 import React from "react";
 import { connect } from "react-redux";
 

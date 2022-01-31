@@ -21,9 +21,13 @@ module.exports = {
   read(key, defaultValue) {
     if (localStorage.hasOwnProperty(key)) {
       var item = localStorage.getItem(key);
-      item = CryptoJS.AES.decrypt(item, "SECURITY_KEY").toString(
-        CryptoJS.enc.Utf8
-      );
+      try {
+        item = CryptoJS.AES.decrypt(item, "SECURITY_KEY").toString(
+          CryptoJS.enc.Utf8
+        );
+      } catch (e) {
+        return {};
+      }
       if (item)
         try {
           var data = JSON.parse(item);

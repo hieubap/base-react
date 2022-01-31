@@ -1,4 +1,4 @@
-import clientUtils from "@utils/client-utils";
+import clientUtils from "utils/client-utils";
 
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {

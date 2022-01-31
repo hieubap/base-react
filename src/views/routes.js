@@ -1,8 +1,11 @@
-import Authorization from "@layouts/authorization";
+import Authorization from "layouts/authorization";
 import React, { Suspense } from "react";
 
 // public
-const Home = React.lazy(() => import("./public/home"));
+const Home = React.lazy(() => import("./public/wall"));
+
+const SignIn = React.lazy(() => import("./auth/signIn"));
+const SignUp = React.lazy(() => import("./auth/signUp"));
 
 const Page =
   (Component, roles = []) =>
@@ -20,5 +23,16 @@ export const routes_public = [
   {
     path: "/p/home",
     component: Page(Home, []),
+  },
+];
+
+export const routes_auth = [
+  {
+    path: "/auth/signin",
+    component: Page(SignIn, []),
+  },
+  {
+    path: "/auth/signup",
+    component: Page(SignUp, []),
   },
 ];

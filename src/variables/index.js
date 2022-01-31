@@ -4,4 +4,5 @@ export const ROLES = {
 
 export const API = {
   account: "/account",
+  post: "/post",
 };

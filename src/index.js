@@ -1,22 +1,27 @@
+import AuthLayout from "layouts/auth";
+import PublicLayout from "layouts/public";
+import LngProvider from "lng";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import stores from "./redux";
 import "./style.scss";
-
-import PublicLayout from "@layouts/public";
-
+import "./styles/style.css";
+import "./styles/vendors/style";
 
 const Root = () => {
   return (
     <Provider store={stores}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/p" render={(props) => <PublicLayout {...props} />} />
-          <Redirect from="*" to="/p/home" />
-        </Switch>
-      </BrowserRouter>
+      <LngProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/p" render={(props) => <PublicLayout {...props} />} />
+            <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+            <Redirect from="*" to="/p/home" />
+          </Switch>
+        </BrowserRouter>
+      </LngProvider>
     </Provider>
   );
 };

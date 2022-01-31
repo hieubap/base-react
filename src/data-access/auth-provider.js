@@ -1,5 +1,5 @@
-import { API } from "@constants";
-import clientUtils from "@utils/client-utils";
+import { API } from "variables";
+import clientUtils from "utils/client-utils";
 
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
