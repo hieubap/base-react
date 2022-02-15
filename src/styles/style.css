@@ -30035,7 +30035,7 @@ h6,
   overflow-x: inherit;
 }
 .gx-main-content-wrapper {
-  padding: 32px 32px 0;
+  padding: 10px 32px 0;
   flex: 1;
 }
 @media screen and (max-width: 575px) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AppLink = ({href, children}) => {
 	return (
-		<Link href={href}>
+		<Link to={href}>
 			<a>{children}</a>
 		</Link>
 	);

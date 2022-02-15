@@ -27,9 +27,9 @@ const PublicLayout = ({ navStyle, footerText, bodyClass ="dark-theme" }) => {
               ))}
             </Switch>
           </div>
-          <Footer>
+          {/* <Footer>
             <div className="gx-layout-footer-content">{footerText}</div>
-          </Footer>
+          </Footer> */}
         </Content>
       </Layout>
       {/* <Customizer /> */}

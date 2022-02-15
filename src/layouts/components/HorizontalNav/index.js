@@ -122,7 +122,7 @@ const HorizontalNav = () => {
         </Menu.Item>
 
         <Menu.Item key="in-built-apps/chat">
-          <AppLink href="/in-built-apps/chat">
+          <AppLink href="/p/chat">
             <i className="icon icon-chat-bubble -flex-column-reverse" />
             <IntlMessages id="sidebar.chatApp" />
           </AppLink>
