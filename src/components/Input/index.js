@@ -27,7 +27,7 @@ const StyledInput = styled.input`
 const Input = ({ className, placeholder, onChange, value, disabled }) => {
   return (
     <StyledInput
-      className={`core-input ${className}`}
+      className={`rapid-input ${className}`}
       placeholder={placeholder}
       onChange={onChange}
       value={value}

@@ -11,7 +11,7 @@ const StyledCheckbox = styled.label`
   }
   span:last-child {
     padding: 0 3px;
-    &.core-checkbox-disable {
+    &.rapid-checkbox-disable {
       color: #00000040;
     }
   }
@@ -24,7 +24,7 @@ const StyledCheckbox = styled.label`
 
 const CheckBox = ({ children, checked, disabled, onChange = () => {} }) => {
   return (
-    <StyledCheckbox className="core-checkbox">
+    <StyledCheckbox className="rapid-checkbox">
       <span>
         <input
           type="checkbox"
@@ -33,7 +33,7 @@ const CheckBox = ({ children, checked, disabled, onChange = () => {} }) => {
           onChange={onChange}
         />
       </span>
-      <span className={`${disabled ? "core-checkbox-disable" : ""}`}>
+      <span className={`${disabled ? "rapid-checkbox-disable" : ""}`}>
         {children}
       </span>
     </StyledCheckbox>

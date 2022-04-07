@@ -43,7 +43,7 @@ const Rate = ({ number = 5, value = 0 }) => {
   };
 
   return (
-    <StyledRate className="core-rate">
+    <StyledRate className="rapid-rate">
       {data.map((item, index) => (
         <i
           key={index}

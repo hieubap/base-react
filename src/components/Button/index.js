@@ -43,7 +43,7 @@ const Button = (
   return (
     <StyledButton
       ref={ref}
-      className={`core-btn ${loading ? ".loading" : ""}`}
+      className={`rapid-btn ${loading ? ".loading" : ""}`}
       background={color}
       color={styled.color}
       type="button"
@@ -51,14 +51,14 @@ const Button = (
       onClick={onClick}
       {...props}
     >
-      <div className={`core-btn-wrapper ${icon ? "" : "no-icon"}`}>
-        <span className="core-btn-wrapper-content">{children}</span>
+      <div className={`rapid-btn-wrapper ${icon ? "" : "no-icon"}`}>
+        <span className="rapid-btn-wrapper-content">{children}</span>
         {loading ? (
-          <div className="core-btn-wrapper-content-loading">
+          <div className="rapid-btn-wrapper-content-loading">
             <i className="fa-solid fa-loader"></i>
           </div>
         ) : icon ? (
-          <i className={`core-btn-wrapper-icon ${icon}`}></i>
+          <i className={`rapid-btn-wrapper-icon ${icon}`}></i>
         ) : (
           <></>
         )}

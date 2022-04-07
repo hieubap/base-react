@@ -42,7 +42,7 @@ export const StyledButton = styled.button`
     }
   }
 
-  .core-btn-wrapper {
+  .rapid-btn-wrapper {
     display: flex;
     align-items: center;
     &-content {
@@ -65,13 +65,13 @@ export const StyledButton = styled.button`
       transition: all 0.8s;
     }
     &:hover:not(.no-icon) {
-      .core-btn-wrapper-loading {
+      .rapid-btn-wrapper-loading {
         margin-left: 7px;
       }
-      .core-btn-wrapper-content {
+      .rapid-btn-wrapper-content {
         margin-right: 5px;
       }
-      .core-btn-wrapper-icon {
+      .rapid-btn-wrapper-icon {
         margin-right: 0;
         opacity: 1;
       }
