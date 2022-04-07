@@ -1,33 +1,69 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import PublicLayout from "@layouts/public";
-import "leaflet/dist/leaflet.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import stores from "./redux";
-import "./style.scss";
-import Oauth from "./views/oauth";
+import Button from "./components/Button/index";
+import "./ignore/style.scss";
+import "./core.scss";
+import "./assets/css/all.min.css";
+import Contain from "./ignore/views/contain";
+import CheckBox from "./components/Checkbox";
+import Input from "./components/Input";
+import Rate from "./components/Rate";
+
+const mapColor = {
+  blue: ["icon", "fa fa-check"],
+  indigo: ["loading", "fa fa-check"],
+  purple: ["disabled", "fa fa-check"],
+  pink: ["pink"],
+  red: ["red"],
+  orange: ["orange"],
+  yellow: ["yellow"],
+  green: ["green"],
+  teal: ["teal"],
+  cyan: ["cyan"],
+  white: ["white"],
+  gray: ["gray"],
+  primary: ["primary"],
+  secondary: ["secondary"],
+  success: ["success"],
+  info: ["info"],
+  warning: ["warning"],
+  danger: ["danger"],
+  light: ["light"],
+  dark: ["dark"],
+  focus: ["focus"],
+  alternate: ["alternate"],
+};
 
 const Root = () => {
   return (
-    <>
-      <ToastContainer
-        position={toast.POSITION.BOTTOM_RIGHT}
-        autoClose={5000}
-      ></ToastContainer>
-      <Provider store={stores}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/sso" render={(props) => <Oauth {...props} />} />
-            <Route path="/p" render={(props) => <PublicLayout {...props} />} />
-            <Redirect to="/p/home" />
-          </Switch>
-        </BrowserRouter>
-      </Provider>
-    </>
+    <div className="main-id">
+      <Contain title={"BUTTON"}>
+        {Object.keys(mapColor).map((item, key) => (
+          <Button
+            key={key}
+            color={item}
+            loading={mapColor[item].includes("loading")}
+            disabled={mapColor[item].includes("disabled")}
+            icon={mapColor[item][1]}
+          >
+            {mapColor[item][0]}
+          </Button>
+        ))}
+      </Contain>
+      <Contain title={"CHECKBOX"}>
+        <CheckBox>Hiệu lực</CheckBox>
+        <CheckBox disabled={true}>Disabled</CheckBox>
+      </Contain>
+      <Contain title={"INPUT"}>
+        <Input placeholder={"Input thường"}></Input>
+        <Input value={"input with value"}></Input>
+        <Input disabled={true} value={"input disabled"}></Input>
+      </Contain>
+      <Contain title={"RATE"}>
+        <Rate number={5} value={4}></Rate>
+        <Rate number={5}></Rate>
+      </Contain>
+    </div>
   );
 };
 
