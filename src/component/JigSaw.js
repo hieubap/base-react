@@ -124,7 +124,7 @@ const JigSaw = ({
         marginBottom: -height / 5,
         backgroundColor,
         clipPath: state.clipPath,
-        // position: "absolute",
+        position: "absolute",
         ...style,
       }}
     ></div>
