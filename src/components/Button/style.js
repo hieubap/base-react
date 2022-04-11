@@ -20,7 +20,13 @@ export const StyledButton = styled.button`
 
   background-color: ${(p) => `var(--${p.background})`};
   color: ${(p) => p.color};
-  &:hover:not(:disabled),
+
+  ${(p) =>
+    p.background === "white"
+      ? `border: 1px solid rgb(187, 187, 187);
+        box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);`
+      : ""}
+
   &.loading {
     opacity: 0.8;
     filter: brightness(110%);

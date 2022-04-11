@@ -22,7 +22,14 @@ iframe[style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; b
   overflow: scroll;
 }
 
-.rapid-btn,
+.contain-child {
+  display: flex;
+  flex-wrap: wrap;
+  .button-child,
+  .badge-child {
+    margin: 10px;
+  }
+}
 .rapid-checkbox,
 .rapid-input,
 .rapid-rate {

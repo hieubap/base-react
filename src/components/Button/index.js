@@ -30,10 +30,11 @@ const Button = (
   {
     icon,
     children,
-    color = "pink",
+    color = "green",
     disabled,
     loading,
     onClick = () => {},
+    className = "",
     ...props
   },
   ref
@@ -43,7 +44,7 @@ const Button = (
   return (
     <StyledButton
       ref={ref}
-      className={`rapid-btn ${loading ? ".loading" : ""}`}
+      className={`${className} rapid-btn ${loading ? ".loading" : ""}`}
       background={color}
       color={styled.color}
       type="button"

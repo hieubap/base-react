@@ -50,7 +50,7 @@ const Rate = ({ number = 5, value = 0 }) => {
           onMouseEnter={onEnter(index)}
           onMouseLeave={onLeave}
           onClick={onSelect(index)}
-          class={`fa-solid fa-star ${item ? "active" : ""}`}
+          className={`fa-solid fa-star ${item ? "active" : ""}`}
         ></i>
       ))}
     </StyledRate>
